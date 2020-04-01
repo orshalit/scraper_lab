@@ -52,26 +52,41 @@ def load_db(dbClient, dbname, load_folder='saved_db'):
                         db[file[:-7]].insert_many(file_data)
 
 
-myclient = pymongo.MongoClient('mongodb://localhost:27017')
-# save_db(myclient)
-load_db(myclient, 'mydatabase')
+def insert_new_data(dbClient, database, collection, cur_data):
+    """
+    Insert new data to local Data base
+    :param dbClient: loaded pymonogo client
+    :param database: name of the database
+    :param collection: name of the collection
+    :param cur_data: data in the form of dictionary
+    :return: prints added if succeded else print failed.
+    """
+    try:
+        dbClient[database][collection].insert_one(cur_data)
+        print('SUCCESS - Added new data')
+    except Exception as e:
+        print(e)
+        print('FAILED to add new data')
+
+
+# Connect to client
+client = pymongo.MongoClient('mongodb://localhost:27017')
+new_data = {'name' : 'oded', 'year':'1'}
+insert_new_data(client, 'mydatabase', 'customers2', new_data)
+# # save_db(myclient)
 # load_db(myclient, 'mydatabase')
-mydb = myclient["mydatabase"]  # Add new data base
-print(myclient.list_database_names())
-dblist = myclient.list_database_names()  # Get list of data bases
-if "mydatabase" in dblist:
-    print("The database exists.")
-mycol = mydb["address"]  # Collection
-print(mydb.list_collection_names())
-collist = mydb.list_collection_names()  # Get list of collections
-if "customers" in collist:
-    print("The collection exists.")
-data = list(mycol.find())
-print(data)
+# # load_db(myclient, 'mydatabase')
+# mydb = myclient["mydatabase"]  # Add new data base
+# print(myclient.list_database_names())
+# dblist = myclient.list_database_names()  # Get list of data bases
+# if "mydatabase" in dblist:
+#     print("The database exists.")
+# mycol = mydb["address"]  # Collection
+# print(mydb.list_collection_names())
+# collist = mydb.list_collection_names()  # Get list of collections
+# if "customers" in collist:
+#     print("The collection exists.")
+# data = list(mycol.find())
+# print(data)
 # mydict = { "name": "misha", "address": "ass" }
 # x = mycol.insert_one(mydict)  # Insert new entry
-
-
-
-
-
