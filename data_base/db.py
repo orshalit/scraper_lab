@@ -1,5 +1,7 @@
 import os
 import pickle
+import shutil
+
 import pymongo
 
 
@@ -13,6 +15,11 @@ def save_db(dbClient, save_folder='saved_db'):
     # If save_folder not exists, create one
     if not os.path.exists(save_folder):
         os.mkdir(save_folder)
+    else:
+        print(os.path.abspath(save_folder))
+        shutil.rmtree(save_folder)
+        os.mkdir(save_folder)
+        print('Deleting older saved data to replace with new')
     # Databases that wont be saved
     exclude = ['admin', 'config', 'local']
     database_list = dbClient.list_database_names()
@@ -71,8 +78,8 @@ def insert_new_data(dbClient, database, collection, cur_data):
 
 # Connect to client
 client = pymongo.MongoClient('mongodb://localhost:27017')
-new_data = {'name' : 'oded', 'year':'1'}
-insert_new_data(client, 'mydatabase', 'customers2', new_data)
+# new_data = {'name' : 'oded', 'year':'1'}
+# insert_new_data(client, 'mydatabase', 'customers2', new_data)
 # # save_db(myclient)
 # load_db(myclient, 'mydatabase')
 # # load_db(myclient, 'mydatabase')
