@@ -10,6 +10,11 @@ def add_to_DB(db_name, col_name, data, client=db.client):
 def querySearch(query, lang, tweets_limit, start_date, end_date, dbName=None, colName=None, save_db=False):
     tweets = list()
 
+    if start_date == 'YYYY-MM-DD':
+        start_date = None
+    if end_date == 'YYYY-MM-DD':
+        end_date = None
+
     # Configure
     c = twint.Config()
     c.Search = query
