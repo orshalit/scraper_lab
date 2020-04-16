@@ -12,7 +12,7 @@ import numpy as np
 basefunc = 'python -m instalooter'
 numofpic = '-n'
 curdirectory = 'Instagramphotos'
-directory_todb = 'C:/Users/allak/PycharmProjects/scraper_lab/GUI/Instagramphotos/*'
+directory_todb = os.path.join(os.path.join(os.getcwd(), curdirectory), '*')
 
 
 def instagram(name=None,mode='hashtag',num='10',mdata=True,pic=True):

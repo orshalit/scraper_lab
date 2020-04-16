@@ -31,7 +31,7 @@ layout = [
               title='Query options', title_color='white', relief=sg.RELIEF_SUNKEN)],
           [sg.Frame(layout=
                     [[sg.Text('Data base name:', size=(15, 1)),
-                      sg.Input(key='s_db_name', size=(25, 1), default_text='reddit')],
+                      sg.Input(key='s_db_name', size=(25, 1), default_text='insta')],
                      [sg.Text('Collection name:', size=(15, 1)),
                       sg.Input(key='s_col_name', size=(25, 1), default_text=date)]],
                     title='Data Base Parameters', title_color='white', relief=sg.RELIEF_SUNKEN,
