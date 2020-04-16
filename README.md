@@ -14,7 +14,7 @@ Currently each scrapper has its own GUI extension for simple usage.
 ### Current Version
 - [x] Twitter + GUI
 - [x] Reddit + GUI
-- [ ] Instagram + GUI
+- [x] Instagram + GUI
 
 ## Examples
 ### Twitter query GUI
@@ -61,3 +61,19 @@ Columns area:
 The data that the user wishes to be extracted from each query answer.
 
 As in the twitter query window the user have option to **search** or **search and save** to mongoDB.
+
+### Instagram query GUI
+![](images/insta_query.png)
+
+Using this query window the user can make query about Hashtag or specific user name and retrieve specified number of pictures and meta-data. All the pictures stored localy and the meta-data in the mongoDB local server.
+
+- **Hashtag** - hashtag query.
+- **User name** - user name query.
+- **Num of pic** - limit the number of pictures to retrieve.
+- **Meta-Data & pictures** - check boxs for the user to choose which data to save.
+
+## Authors
+This simple usage of libraries written by:
+- Or Shalit - [@orshalit](https://github.com/orshalit)
+- Alla Kitaieva - [@AllaKit](https://github.com/AllaKit)  
+- Tzvi Puchinsky (also this readme author) - [@Tzvi23](https://github.com/Tzvi23)
